@@ -16,7 +16,7 @@ function Nameform({formSubmitted, namelength}) {
     function handleAddName(e){
       e.preventDefault()
       console.log(newName)
-      fetch("http://localhost:3000/todos",{
+      fetch("http://localhost:3000/people",{
         // method, headers, body
         method: "POST",
         headers: {

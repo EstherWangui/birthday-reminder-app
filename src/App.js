@@ -1,56 +1,49 @@
-import { useState } from "react"
+import React, { useState, useEffect } from 'react';
+import data from './data';
+import List from './List';
+import Name from './Name';
+import Nameform from './Nameform';
+function App() {
+  const [people, setPeople] = useState(data);
+  const[myname, setmyname] = useState([])
+  const[nameNo, setnameNo] = useState(0)
+  const[nameAdded, setnameAdded] = useState(true)
 
-function Nameform({formSubmitted, namelength}) {
-    const[newName, setnewName] = useState({"id":namelength+=1})
-    console.log(namelength)
-    function handleInput(e){
-        let value = e.target.value
-        let name = e.target.name
-        console.log(`value is ${value}`)
-        console.log(`name is ${name}`)
-        // let data = {[name]: value}
-        setnewName({...newName,[name]: value})
-
-
-    }
-    function handleAddName(e){
-      e.preventDefault()
-      console.log(newName)
-      fetch("http://localhost:3000/todos",{
-        // method, headers, body
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newName)
-      })
-      .then((res)=> res.json())
-      .then((data)=>
-        console.log(data)
+  useEffect(()=>{
+    fetch("http://localhost:3000/todos")
+    .then((res)=>res.json())
+    .then((data)=>{
+      // console.log(data)
+      setmyname((myname)=>data)
+      setnameNo((nameNo)=>data.length)
+    })
+    let namelist = myname.map((elem, ind)=>{
+      return(
+        <Name key={ind} name={elem.name} years={elem.years} Dateofbirth={elem.Dateofbirth} />
       )
-      formSubmitted()
+    })
 
-    }
+  },[nameAdded])
+  console.log(nameNo)
 
-    console.log(newName)
+    
+  function handleNewName(){
+    console.log("Parent function is triggered")
+    setnameAdded((NameAdded)=>!NameAdded)
+  }
   return (
-    <>
-      <form onSubmit={handleAddName}>
-        <label>
-         Name:
-          <input onBlur={handleInput} type="text" name="name" />
-        </label>
-        <label>
-          years:
-          <input onBlur={handleInput} type="text" name="years" />
-        </label>
-        <label>
-          Dateofbirth:
-          <input onBlur={handleInput} type="text" name="Dteofbirth" />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+  <>
+  <Nameform formSubmitted={handleNewName} namelength={nameNo}/>
+      {namelist}
+     <main>
+      <section className='container'>
+        <h3>{people.length} birthdays today</h3>
+        <List people={people} />
+        <button onClick={() => setPeople([])}>clear all</button>
+      </section>
+    </main>
     </>
   );
 }
-export default Nameform;
+
+export default App;

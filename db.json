@@ -1,0 +1,21 @@
+{
+  "people": [
+    {
+      "id":1,
+      "name": "villi  completence",
+      "years": 39 
+    
+    },
+    {
+      "id": 2,
+      "name": "mentily lewii",
+      "years": 36
+    },
+  {
+    "id":3,
+    "name": "codizilie Amini",
+    "years":24
+  }
+  ]
+}
+
