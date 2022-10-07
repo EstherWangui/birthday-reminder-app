@@ -46,7 +46,7 @@ function Nameform({formSubmitted, namelength}) {
         </label>
         <label>
           Dateofbirth:
-          <input onBlur={handleInput} type="text" name="Dteofbirth" />
+          <input onBlur={handleInput} type="text" name="Dateofbirth" />
         </label>
         <input type="submit" value="Submit" />
       </form>
