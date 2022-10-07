@@ -3,7 +3,7 @@ import data from './data';
 import List from './List';
 import Name from './Name';
 import Nameform from './Nameform';
-//import { Routes, Route, Link } from 'react-router-dom';}
+import { Routes, Route, Link } from 'react-router-dom';}
 function App() {
   const [people, setPeople] = useState(data);
   const[myname, setmyname] = useState([])
@@ -38,6 +38,11 @@ function App() {
       )
     })}
       </>
+      <Routes>
+        <Route exact path="/name">
+          <Name/>
+        </Route>
+      </Routes>
      <main>
       <section className='container'>
         <h3>{people.length} birthdays today</h3>
