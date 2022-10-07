@@ -3,7 +3,6 @@ import data from './data';
 import List from './List';
 import Name from './Name';
 import Nameform from './Nameform';
-//import { Routes, Route, } from 'react-router-dom';
 function App() {
   const [people, setPeople] = useState(data);
   const[myname, setmyname] = useState([])
