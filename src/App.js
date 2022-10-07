@@ -10,18 +10,14 @@ function App() {
   const[nameAdded, setnameAdded] = useState(true)
 
   useEffect(()=>{
-    fetch("http://localhost:3000/todos")
+    fetch("http://localhost:3000/people")
     .then((res)=>res.json())
     .then((data)=>{
       // console.log(data)
       setmyname((myname)=>data)
       setnameNo((nameNo)=>data.length)
     })
-    let namelist = myname.map((elem, ind)=>{
-      return(
-        <Name key={ind} name={elem.name} years={elem.years} Dateofbirth={elem.Dateofbirth} />
-      )
-    })
+
 
   },[nameAdded])
   console.log(nameNo)
@@ -32,9 +28,15 @@ function App() {
     setnameAdded((NameAdded)=>!NameAdded)
   }
   return (
-  <>
+  <div>
+    <>
   <Nameform formSubmitted={handleNewName} namelength={nameNo}/>
-      {namelist}
+      {myname.map((elem, ind)=>{
+      return(
+        <Name key={ind} name={elem.name} years={elem.years} Dateofbirth={elem.Dateofbirth} />
+      )
+    })}
+      </>
      <main>
       <section className='container'>
         <h3>{people.length} birthdays today</h3>
@@ -42,7 +44,7 @@ function App() {
         <button onClick={() => setPeople([])}>clear all</button>
       </section>
     </main>
-    </>
+    </div>
   );
 }
 

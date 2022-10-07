@@ -8,4 +8,4 @@ function Name({name, years, Dateofbirth}){
     )
 }
 
-export default Name
+export default Name;
