@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState } from "react";
+//import { Router } from "react-router-dom"
 
 function Nameform({formSubmitted, namelength}) {
     const[newName, setnewName] = useState({"id":namelength+=1})
@@ -38,17 +39,19 @@ function Nameform({formSubmitted, namelength}) {
       <form onSubmit={handleAddName}>
         <label>
          Name:
-          <input onBlur={handleInput} type="text" name="name" />
+          <input onBlur={handleInput} type="text" name="name" required/>
         </label>
         <label>
           years:
-          <input onBlur={handleInput} type="text" name="years" />
+          <input onBlur={handleInput} type="text" name="years" required/>
         </label>
         <label>
           Dateofbirth:
-          <input onBlur={handleInput} type="text" name="Dateofbirth" />
+          <input onBlur={handleInput} type="text" name="Dateofbirth" required/>
         </label>
-       <button>submit</button>
+        
+    
+       
       </form>
     </>
   );
