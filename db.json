@@ -1,10 +1,10 @@
 {
   "people": [
     {
-      "id":1,
+      "id": 1,
       "name": "villi  completence",
-      "years": 39 ,
-    "Dateofbirth": "29/02/2002"
+      "years": 39,
+      "Dateofbirth": "29/02/2002"
     },
     {
       "id": 2,
@@ -12,12 +12,12 @@
       "years": 36,
       "Dateofbirth": "29/02/2002"
     },
-  {
-    "id":3,
-    "name": "codizilie Amini",
-    "years":24,
-    "Dateofbirth": "29/02/2002"
-  }
+    {
+      "id": 3,
+      "name": "codizilie Amini",
+      "years": 24,
+      "Dateofbirth": "29/02/2002"
+    }
+    
   ]
 }
-

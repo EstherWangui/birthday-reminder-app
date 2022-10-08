@@ -1,9 +1,9 @@
 import React from 'react';
 
-const List = ({ people }) => {
+const List = ({ person }) => {
   return (
     <>
-      {people.map((person) => {
+      {person.map((person) => {
         const { id, name, age, image } = person;
         return (
           <article key={id} className='person'>
